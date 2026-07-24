@@ -1,6 +1,6 @@
-# Portal Koperasi Desa Merah Putih Sukaresik
+# Portal Koperasi Desa Merah Putih Cipondok
 
-Aplikasi Web Portal Resmi Koperasi Desa Merah Putih Kecamatan Sukaresik, Kabupaten Tasikmalaya.
+Aplikasi Web Portal Resmi Koperasi Desa Merah Putih Desa Cipondok, Kabupaten Tasikmalaya.
 
 ## Cara Deploy ke Vercel
 
