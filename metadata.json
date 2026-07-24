@@ -1,6 +1,6 @@
 {
-  "name": "Portal Koperasi Desa Merah Putih Cipondok",
-  "description": "Portal Resmi Koperasi Desa Merah Putih Desa Cipondok - Profil Koperasi, Direktori Anggota, Potensi Desa, Produk UMKM, Simulasi, dan Pendaftaran.",
+  "name": "Koperasi Desa Merah Putih Desa Cipondok",
+  "description": "Microsite resmi Koperasi Desa Merah Putih Desa Cipondok, Kecamatan Sukaresik, Kabupaten Tasikmalaya - Media Informasi, Promosi, dan Potensi Desa.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

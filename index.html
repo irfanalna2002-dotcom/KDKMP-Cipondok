@@ -1,13 +1,1314 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Koperasi Desa Merah Putih Desa Cipondok - Sukaresik, Tasikmalaya</title>
+  <meta name="title" content="Koperasi Desa Merah Putih Desa Cipondok - Sukaresik, Tasikmalaya" />
+  <meta name="description" content="Microsite resmi Koperasi Desa Merah Putih Desa Cipondok, Kecamatan Sukaresik, Kabupaten Tasikmalaya. Media informasi, promosi produk unggulan UMKM, pertanian, dan potensi ekonomi desa." />
+  <meta name="keywords" content="Koperasi Merah Putih, Desa Cipondok, Koperasi Tasikmalaya, Sukaresik, UMKM Desa Cipondok, Pertanian Organik, Irfan Alna, Ekonomi Desa" />
+  <meta name="author" content="Koperasi Desa Merah Putih Desa Cipondok" />
 
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://koperasi-cipondok.desa.id/" />
+  <meta property="og:title" content="Koperasi Desa Merah Putih Desa Cipondok" />
+  <meta property="og:description" content="Membangun Ekonomi Desa Cipondok yang Mandiri, Sejahtera, dan Berdaya Saing." />
+  <meta property="og:image" content="/images/kantor_desa.jpg" />
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Koperasi Desa Merah Putih Desa Cipondok" />
+  <meta property="twitter:description" content="Membangun Ekonomi Desa Cipondok yang Mandiri, Sejahtera, dan Berdaya Saing." />
+  <meta property="twitter:image" content="/images/kantor_desa.jpg" />
+
+  <!-- Google Fonts (Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 & Bootstrap Icons CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Schema.org Organization JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Koperasi Desa Merah Putih Desa Cipondok",
+    "url": "https://koperasi-cipondok.desa.id/",
+    "logo": "/images/kantor_desa.jpg",
+    "description": "Koperasi pemberdayaan masyarakat dan UMKM di Desa Cipondok, Kecamatan Sukaresik, Kabupaten Tasikmalaya.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Jl. Cipandang No. 2, Desa Cipondok",
+      "addressLocality": "Sukaresik",
+      "addressRegion": "Jawa Barat",
+      "postalCode": "46159",
+      "addressCountry": "ID"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+62-812-3456-7890",
+      "contactType": "customer service",
+      "areaServed": "ID",
+      "availableLanguage": "Indonesian"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ==========================================
+       1. LOADING SCREEN
+       ========================================== -->
+  <div id="loading-screen">
+    <div class="brand-icon spinner-logo">
+      <i class="bi bi-bank2"></i>
+    </div>
+    <h5 class="fw-bold text-danger mb-1">KOPERASI DESA MERAH PUTIH</h5>
+    <p class="text-muted small">Desa Cipondok, Sukaresik, Tasikmalaya</p>
+    <div class="spinner-border text-danger mt-2" role="status">
+      <span class="visually-hidden">Memuat...</span>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       2. STICKY NAVBAR
+       ========================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <!-- Logo Brand -->
+      <a class="navbar-brand navbar-brand-logo" href="#beranda">
+        <div class="brand-icon">
+          <i class="bi bi-bank2"></i>
+        </div>
+        <div>
+          <div class="brand-text-title">KOPERASI MERAH PUTIH</div>
+          <div class="brand-text-sub">Desa Cipondok • Sukaresik</div>
+        </div>
+      </a>
+
+      <!-- Action Buttons Right (Mobile) -->
+      <div class="d-flex align-items-center gap-2 d-lg-none">
+        <button id="theme-toggle-btn-mobile" class="btn-theme-toggle" type="button" aria-label="Toggle Mode">
+          <i class="bi bi-moon-stars-fill" id="theme-toggle-icon-mobile"></i>
+        </button>
+        <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNav" aria-controls="mobileNav">
+          <i class="bi bi-list fs-1 text-primary"></i>
+        </button>
+      </div>
+
+      <!-- Desktop Links -->
+      <div class="collapse navbar-collapse" id="desktopNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#profil">Profil</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#potensi">Potensi Desa</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#produk">Produk</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#artikel">Artikel</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#promosi">Promosi</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom" href="#kontak">Kontak</a></li>
+        </ul>
+
+        <div class="d-flex align-items-center gap-3">
+          <button id="theme-toggle-btn" class="btn-theme-toggle" type="button" aria-label="Toggle Theme">
+            <i class="bi bi-moon-stars-fill" id="theme-toggle-icon"></i>
+          </button>
+          <a href="#produk" class="btn btn-danger px-4 rounded-pill fw-bold btn-sm shadow-sm">
+            <i class="bi bi-cart3 me-1"></i> Belanja UMKM
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Offcanvas Navigation -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNav">
+    <div class="offcanvas-header border-bottom">
+      <div class="d-flex align-items-center gap-2">
+        <div class="brand-icon" style="width: 36px; height: 36px; font-size: 1rem;">
+          <i class="bi bi-bank2"></i>
+        </div>
+        <span class="fw-bold text-danger">Koperasi Merah Putih</span>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav gap-2">
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#beranda">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#profil">Profil Koperasi</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#potensi">Potensi Desa</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#produk">Produk UMKM</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#artikel">Artikel & Berita</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#promosi">Promosi & Diskon</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-custom fs-5" href="#kontak">Kontak Kami</a></li>
+      </ul>
+      <div class="mt-4 pt-3 border-top">
+        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="btn btn-success w-100 rounded-pill fw-bold">
+          <i class="bi bi-whatsapp me-2"></i> Hubungi via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       3. HERO SECTION
+       ========================================== -->
+  <section id="beranda" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+        <div class="col-lg-6">
+          <div class="hero-badge">
+            <i class="bi bi-geo-alt-fill"></i> Desa Cipondok • Sukaresik • Tasikmalaya
+          </div>
+          <h1 class="hero-title">
+            Koperasi Desa Merah Putih <span>Desa Cipondok</span>
+          </h1>
+          <p class="hero-subtitle">
+            Bersama Membangun Ekonomi Desa yang Mandiri, Sejahtera, dan Berdaya Saing melalui pemberdayaan petani, peternak, dan pelaku UMKM lokal.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#produk" class="btn btn-danger btn-lg rounded-pill fw-bold px-4 shadow">
+              <i class="bi bi-bag-check me-2"></i> Lihat Produk
+            </a>
+            <a href="#profil" class="btn btn-outline-danger btn-lg rounded-pill fw-bold px-4">
+              <i class="bi bi-info-circle me-2"></i> Pelajari Koperasi
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-img-container">
+            <!-- Floating Chips -->
+            <div class="floating-chip floating-chip-1">
+              <div class="badge bg-success rounded-circle p-2"><i class="bi bi-patch-check-fill fs-5 text-white"></i></div>
+              <div>
+                <div class="text-dark">100% Produk Lokal</div>
+                <small class="text-muted">Desa Cipondok</small>
+              </div>
+            </div>
+
+            <div class="floating-chip floating-chip-2">
+              <div class="badge bg-danger rounded-circle p-2"><i class="bi bi-people-fill fs-5 text-white"></i></div>
+              <div>
+                <div class="text-dark">Gotong Royong</div>
+                <small class="text-muted">350+ Anggota Aktif</small>
+              </div>
+            </div>
+
+            <img src="/images/koperasi_hero.jpg" alt="Koperasi Desa Merah Putih" class="hero-img" loading="lazy" referrerPolicy="no-referrer" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       4. STATISTIK COUNTER
+       ========================================== -->
+  <section id="statistik" class="stats-section">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-number"><span class="counter-value" data-target="350">0</span>+</div>
+            <p class="stat-label">Jumlah Anggota</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-shop"></i></div>
+            <div class="stat-number"><span class="counter-value" data-target="48">0</span></div>
+            <p class="stat-label">UMKM Binaan</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-box-seam-fill"></i></div>
+            <div class="stat-number"><span class="counter-value" data-target="25">0</span>+</div>
+            <p class="stat-label">Produk Unggulan</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-flower1"></i></div>
+            <div class="stat-number"><span class="counter-value" data-target="12">0</span></div>
+            <p class="stat-label">Kelompok Tani</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="stat-item">
+            <div class="stat-icon"><i class="bi bi-handbag-fill"></i></div>
+            <div class="stat-number"><span class="counter-value" data-target="15">0</span></div>
+            <p class="stat-label">Mitra Usaha</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       5. PROFIL KOPERASI
+       ========================================== -->
+  <section id="profil" class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-title-badge">Profil Lengkap</span>
+        <h2 class="section-main-title">Mengenal Koperasi Desa Merah Putih</h2>
+        <p class="section-description">
+          Lembaga ekonomi berbadan hukum yang berdedikasi meningkatkan kesejahteraan masyarakat Desa Cipondok, Kecamatan Sukaresik.
+        </p>
+      </div>
+
+      <!-- Tentang & Sejarah -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="profile-card-item h-100">
+            <div class="profile-icon-box"><i class="bi bi-building"></i></div>
+            <h4 class="fw-bold mb-3">Tentang Koperasi</h4>
+            <p class="text-secondary mb-0">
+              Koperasi Desa Merah Putih Desa Cipondok didirikan sebagai wadah kebangkitan ekonomi pedesaan berbasis gotong royong. Kami memfasilitasi permodalan simpan pinjam, pemasaran komoditas pertanian, serta pengembangan unit usaha kreatif UMKM warga desa.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="profile-card-item h-100">
+            <div class="profile-icon-box" style="background-color: var(--primary-green-light); color: var(--primary-green);"><i class="bi bi-hourglass-split"></i></div>
+            <h4 class="fw-bold mb-3">Sejarah Singkat</h4>
+            <p class="text-secondary mb-0">
+              Berawal dari kesepakatan kelompok tani dan tokoh masyarakat di Desa Cipondok pada tahun 2021, koperasi ini terus berkembang menjadi penggerak utama rantai pasok hasil bumi dan produk olahan lokal di wilayah Tasikmalaya Utara.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visi, Misi & Nilai -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="card-custom p-4 text-center">
+            <i class="bi bi-eye-fill fs-1 text-danger mb-3"></i>
+            <h5 class="fw-bold">Visi Koperasi</h5>
+            <p class="text-secondary small mb-0">
+              "Menjadi koperasi desa percontohan yang mandiri, transparan, serta berdaya saing tinggi dalam memperkuat ketahanan pangan dan ekonomi masyarakat Desa Cipondok."
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4">
+            <div class="text-center mb-3">
+              <i class="bi bi-bullseye fs-1 text-success"></i>
+              <h5 class="fw-bold">Misi Koperasi</h5>
+            </div>
+            <ul class="text-secondary small ps-3 mb-0">
+              <li class="mb-2">Meningkatkan kapasitas produksi dan kualitas panen petani lokal.</li>
+              <li class="mb-2">Memberikan kemudahan akses permodalan usaha bagi UMKM binaan.</li>
+              <li class="mb-2">Memperluas jangkauan pemasaran produk desa melalui platform digital.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-custom p-4">
+            <div class="text-center mb-3">
+              <i class="bi bi-shield-check fs-1 text-warning"></i>
+              <h5 class="fw-bold">Nilai-Nilai Utama</h5>
+            </div>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+              <span class="badge bg-danger-subtle text-danger p-2 px-3 rounded-pill">Gotong Royong</span>
+              <span class="badge bg-success-subtle text-success p-2 px-3 rounded-pill">Transparansi</span>
+              <span class="badge bg-primary-subtle text-primary p-2 px-3 rounded-pill">Akuntabilitas</span>
+              <span class="badge bg-warning-subtle text-warning p-2 px-3 rounded-pill">Inovasi Usaha</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Struktur Organisasi & Legalitas -->
+      <div class="mb-5">
+        <div class="text-center mb-4">
+          <h3 class="fw-bold">Struktur Organisasi & Pengurus</h3>
+          <p class="text-muted">Kepengurusan profesional yang amanah mengelola Koperasi Desa Merah Putih</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Featured Manager: Irfan Alna -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="org-card border-danger">
+              <img src="/images/irfan_alna.jpg" alt="Irfan Alna - Manajer Koperasi" class="org-img" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="org-name">Irfan Alna</div>
+              <div class="org-role">Manajer Koperasi</div>
+              <p class="text-muted small mt-2 mb-0"><i class="bi bi-telephone-fill me-1"></i> Operations Lead</p>
+            </div>
+          </div>
+
+          <!-- Ketua Koperasi -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="org-card">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="H. Ahmad Dahlan" class="org-img" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="org-name">H. Ahmad Dahlan</div>
+              <div class="org-role" style="background: var(--primary-green-light); color: var(--primary-green);">Ketua Koperasi</div>
+              <p class="text-muted small mt-2 mb-0">Kebijakan & Strategi</p>
+            </div>
+          </div>
+
+          <!-- Sekretaris -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="org-card">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Siti Rahmawati" class="org-img" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="org-name">Siti Rahmawati, S.E.</div>
+              <div class="org-role">Sekretaris</div>
+              <p class="text-muted small mt-2 mb-0">Administrasi & Keanggotaan</p>
+            </div>
+          </div>
+
+          <!-- Bendahara -->
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="org-card">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Deden Kurnia" class="org-img" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="org-name">Deden Kurnia, S.Ak.</div>
+              <div class="org-role">Bendahara</div>
+              <p class="text-muted small mt-2 mb-0">Manajemen Keuangan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legalitas Badge Bar -->
+      <div class="p-4 bg-body-tertiary rounded-4 border text-center">
+        <h5 class="fw-bold mb-3"><i class="bi bi-file-earmark-check-fill text-success me-2"></i> Legalitas & Sertifikasi Resmi</h5>
+        <div class="d-flex flex-wrap gap-3 justify-content-center text-secondary small">
+          <span class="badge bg-light text-dark border p-2"><i class="bi bi-check-circle-fill text-success me-1"></i> SK AHU Kemenkumham RI</span>
+          <span class="badge bg-light text-dark border p-2"><i class="bi bi-check-circle-fill text-success me-1"></i> NIB: 1289000182741</span>
+          <span class="badge bg-light text-dark border p-2"><i class="bi bi-check-circle-fill text-success me-1"></i> Izin Usaha Simpan Pinjam</span>
+          <span class="badge bg-light text-dark border p-2"><i class="bi bi-check-circle-fill text-success me-1"></i> Sertifikat Halal & P-IRT Produk</span>
+        </div>
+      </div>
+
+      <!-- Galeri Foto Koperasi -->
+      <div class="mt-5">
+        <div class="text-center mb-4">
+          <h3 class="fw-bold">Galeri Kegiatan & Kantor</h3>
+          <p class="text-muted">Dokumentasi kebersamaan dan fasilitas Koperasi Desa Merah Putih</p>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-6 col-md-3">
+            <div class="gallery-item" data-img="/images/kantor_desa.jpg" data-caption="Kantor Desa Cipondok & Sekretariat Koperasi">
+              <img src="/images/kantor_desa.jpg" alt="Kantor Desa Cipondok" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="gallery-overlay">
+                <i class="bi bi-zoom-in fs-2"></i>
+                <small class="mt-1">Kantor Desa Cipondok</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="gallery-item" data-img="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80" data-caption="Panen Raya Padi Organik Bersama Petani Cipondok">
+              <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80" alt="Panen Raya Padi Organik" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="gallery-overlay">
+                <i class="bi bi-zoom-in fs-2"></i>
+                <small class="mt-1">Panen Raya Padi</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="gallery-item" data-img="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80" data-caption="Rapat Anggota Tahunan & Musyawarah Pengurus">
+              <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" alt="Rapat Anggota Koperasi" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="gallery-overlay">
+                <i class="bi bi-zoom-in fs-2"></i>
+                <small class="mt-1">Rapat Anggota Tahunan</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="gallery-item" data-img="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80" data-caption="Pelatihan Digital Kemasan & Pemasaran Produk UMKM">
+              <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=600&q=80" alt="Pelatihan UMKM" loading="lazy" referrerPolicy="no-referrer" />
+              <div class="gallery-overlay">
+                <i class="bi bi-zoom-in fs-2"></i>
+                <small class="mt-1">Pelatihan UMKM</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       6. POTENSI DESA CIPONDOK
+       ========================================== -->
+  <section id="potensi" class="section-padding bg-body-tertiary border-top border-bottom">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-title-badge">Kekayaan & Komoditas</span>
+        <h2 class="section-main-title">Potensi Ekonomi Desa Cipondok</h2>
+        <p class="section-description">
+          Desa Cipondok, Sukaresik memiliki anugerah alam yang subur dan kerajinan masyarakat yang bernilai ekonomi tinggi.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="filter-btn-group">
+        <button class="btn-filter btn-filter-potensi active" data-filter="all">Semua Potensi</button>
+        <button class="btn-filter btn-filter-potensi" data-filter="pertanian">Pertanian</button>
+        <button class="btn-filter btn-filter-potensi" data-filter="peternakan">Peternakan</button>
+        <button class="btn-filter btn-filter-potensi" data-filter="perikanan">Perikanan</button>
+        <button class="btn-filter btn-filter-potensi" data-filter="perkebunan">Perkebunan</button>
+        <button class="btn-filter btn-filter-potensi" data-filter="umkm">UMKM & Kerajinan</button>
+        <button class="btn-filter btn-filter-potensi" data-filter="wisata">Wisata & Kuliner</button>
+      </div>
+
+      <div class="row g-4" id="potensi-container">
+
+        <!-- Pertanian -->
+        <div class="col-md-6 col-lg-4 potensi-card-col" data-category="pertanian">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=600&q=80" alt="Pertanian Padi Organik" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-green">Pertanian</span>
+            </div>
+            <div class="card-body-custom">
+              <h5 class="fw-bold mb-2">Padi Pandanwangi Organik</h5>
+              <p class="text-secondary small">Lahan pesawahan teknis yang subur menghasilkan beras wangi alami berkualitas premium tanpa bahan kimia sintetis.</p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="small fw-semibold text-danger mb-1"><i class="bi bi-graph-up-arrow me-1"></i> Potensi Ekonomi:</div>
+                <p class="small text-muted mb-2">Kapasitas panen 120 ton per musim dengan pangsa pasar Jabodetabek & Bandung.</p>
+                <span class="badge bg-success-subtle text-success">Peluang: Sertifikasi Organik Nasional</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Peternakan -->
+        <div class="col-md-6 col-lg-4 potensi-card-col" data-category="peternakan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=600&q=80" alt="Peternakan Ayam Kampung" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-red">Peternakan</span>
+            </div>
+            <div class="card-body-custom">
+              <h5 class="fw-bold mb-2">Peternakan Ayam Kampung Super</h5>
+              <p class="text-secondary small">Pengembangan ternak ayam kampung dan domba unggul dengan pakan bernutrisi berbasis limbah pertanian setempat.</p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="small fw-semibold text-danger mb-1"><i class="bi bi-graph-up-arrow me-1"></i> Potensi Ekonomi:</div>
+                <p class="small text-muted mb-2">Penyuplai konsisten ke pasar komersial dan rumah makan khas Sunda Tasikmalaya.</p>
+                <span class="badge bg-danger-subtle text-danger">Peluang: Industri Pengolahan Daging</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perikanan -->
+        <div class="col-md-6 col-lg-4 potensi-card-col" data-category="perikanan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=600&q=80" alt="Perikanan Air Tawar" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-blue">Perikanan</span>
+            </div>
+            <div class="card-body-custom">
+              <h5 class="fw-bold mb-2">Budidaya Ikan Gurame & Nila</h5>
+              <p class="text-secondary small">Sumber air irigasi pegunungan yang jernih mendukung budidaya kolam air tawar produktif masyarakat.</p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="small fw-semibold text-danger mb-1"><i class="bi bi-graph-up-arrow me-1"></i> Potensi Ekonomi:</div>
+                <p class="small text-muted mb-2">Produksi mingguan mencapai 2.5 ton ikan gurame segar siap konsumsi.</p>
+                <span class="badge bg-primary-subtle text-primary">Peluang: Olahan Ikan Frozen & Bakar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perkebunan -->
+        <div class="col-md-6 col-lg-4 potensi-card-col" data-category="perkebunan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=600&q=80" alt="Perkebunan Kopi & Kapulaga" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-gold">Perkebunan</span>
+            </div>
+            <div class="card-body-custom">
+              <h5 class="fw-bold mb-2">Kopi & Kapulaga Rempah</h5>
+              <p class="text-secondary small">Komoditas kebun rakyat di dataran Sukaresik yang menghasilkan cita rasa kopi robusta bernuansa rempah unik.</p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="small fw-semibold text-danger mb-1"><i class="bi bi-graph-up-arrow me-1"></i> Potensi Ekonomi:</div>
+                <p class="small text-muted mb-2">Tinggi permintaan dari kedai kopi modern dan industri herbal rempah nasional.</p>
+                <span class="badge bg-warning-subtle text-warning">Peluang: Kemasan Brand Kopi Lokal</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UMKM & Kerajinan -->
+        <div class="col-md-6 col-lg-4 potensi-card-col" data-category="umkm">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1528458909336-e7a0adfac1d5?auto=format&fit=crop&w=600&q=80" alt="Kerajinan Anyaman Bambu" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-red">UMKM & Kerajinan</span>
+            </div>
+            <div class="card-body-custom">
+              <h5 class="fw-bold mb-2">Anyaman Bambu & Olahan Singkong</h5>
+              <p class="text-secondary small">Kreativitas pengrajin lokal dalam mengolah bambu menjadi souvenir serta singkong menjadi renyah berkualitas.</p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="small fw-semibold text-danger mb-1"><i class="bi bi-graph-up-arrow me-1"></i> Potensi Ekonomi:</div>
+                <p class="small text-muted mb-2">Membuka lapangan kerja untuk puluhan ibu rumah tangga di Desa Cipondok.</p>
+                <span class="badge bg-danger-subtle text-danger">Peluang: Ekspor Suvenir & E-Commerce</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wisata & Kuliner -->
+        <div class="col-md-6 col-lg-4 potensi-card-col" data-category="wisata">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Edu-Wisata Sawah" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-green">Wisata & Kuliner</span>
+            </div>
+            <div class="card-body-custom">
+              <h5 class="fw-bold mb-2">Edu-Wisata Pertanian & Kuliner</h5>
+              <p class="text-secondary small">Pemandangan hamparan sawah hijau berlatar pegunungan didukung saung kuliner masakan Sunda otentik.</p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="small fw-semibold text-danger mb-1"><i class="bi bi-graph-up-arrow me-1"></i> Potensi Ekonomi:</div>
+                <p class="small text-muted mb-2">Destinasi wisata edukasi keluarga dan tempat acara komunitas daerah.</p>
+                <span class="badge bg-success-subtle text-success">Peluang: Desa Wisata Berbasis Koperasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       7. KATALOG PRODUK KOPERASI
+       ========================================== -->
+  <section id="produk" class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-title-badge">Katalog Digital</span>
+        <h2 class="section-main-title">Produk Unggulan Koperasi</h2>
+        <p class="section-description">
+          Dukung perekonomian warga dengan membeli produk asli berkualitas dari petani dan UMKM binaan Desa Cipondok.
+        </p>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-6 mb-3">
+          <div class="input-group">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input type="text" id="product-search" class="form-control border-start-0 ps-0" placeholder="Cari nama produk (misal: beras, kopi, keripik)..." />
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-btn-group">
+        <button class="btn-filter btn-filter-product active" data-filter="all">Semua Produk</button>
+        <button class="btn-filter btn-filter-product" data-filter="pertanian">Pertanian</button>
+        <button class="btn-filter btn-filter-product" data-filter="makanan">Makanan & Olahan</button>
+        <button class="btn-filter btn-filter-product" data-filter="kerajinan">Kerajinan & Fashion</button>
+        <button class="btn-filter btn-filter-product" data-filter="peternakan">Peternakan & Perikanan</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="row g-4" id="products-container">
+
+        <!-- Produk 1 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="pertanian">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=500&q=80" alt="Beras Organik Pandanwangi" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-green">Stok Ready</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Pertanian</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 4.9 (120)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Beras Organik Pandanwangi (5 Kg)</h6>
+              <p class="text-secondary small product-desc mb-3">Beras pulen beraroma wangi alami hasil panen sawah organik Cipondok.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 75.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Beras Organik Pandanwangi (5 Kg)', 'Rp 75.000', 'Pertanian', '50 Karung', 'Beras organik kualitas super tanpa pestisida kimia. Dikemas dengan vakum higienis.', 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Beras%20Organik%20Pandanwangi" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 2 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="pertanian">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=500&q=80" alt="Sayuran Organik Segar" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-green">Segar</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Pertanian</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 4.8 (85)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Paket Sayuran Organik Segar</h6>
+              <p class="text-secondary small product-desc mb-3">Kombinasi kubis, bayam, wortel, dan tomat petik langsung dari kebun.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 25.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Paket Sayuran Organik Segar', 'Rp 25.000', 'Pertanian', '20 Paket/Hari', 'Sayuran hijau bebas zat kimia berbahaya, dipetik setiap pagi hari untuk menjamin kesegaran.', 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Paket%20Sayuran%20Organik" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 3 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="peternakan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=500&q=80" alt="Ikan Gurame Segar" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-blue">Kolam Air Tawar</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Perikanan</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 5.0 (92)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Ikan Gurame Segar (1 Kg)</h6>
+              <p class="text-secondary small product-desc mb-3">Ikan gurame daging tebal dari budidaya air jernih pegunungan.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 45.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Ikan Gurame Segar (1 Kg)', 'Rp 45.000', 'Perikanan', '100 Kg', 'Daging manis gurih tanpa bau lumpur. Dapat dipesan hidup atau dibersihkan.', 'https://images.unsplash.com/photo-1534483509719-3feaee7c30da?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Ikan%20Gurame%20Segar" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 4 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="peternakan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=500&q=80" alt="Telur Ayam Kampung" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-red">Organik</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Peternakan</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 4.9 (64)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Telur Ayam Kampung Asli (Tray 10)</h6>
+              <p class="text-secondary small product-desc mb-3">Telur segar bernutrisi tinggi dari ternak bebas umbaran Desa Cipondok.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 32.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Telur Ayam Kampung Asli (Tray 10)', 'Rp 32.000', 'Peternakan', '30 Tray', 'Kaya Omega-3 dan kaya nutrisi alami. Sangat cocok untuk konsumsi harian keluarga sehat.', 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Telur%20Ayam%20Kampung" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 5 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="makanan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1528751014936-863e6e7a319c?auto=format&fit=crop&w=500&q=80" alt="Keripik Pisang Renyah" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-gold">Best Seller</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Makanan & Olahan</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 4.9 (150)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Keripik Pisang Aneka Rasa (250gr)</h6>
+              <p class="text-secondary small product-desc mb-3">Camilan renyah pilihan rasa cokelat, keju, dan manis gurih otentik.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 15.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Keripik Pisang Aneka Rasa (250gr)', 'Rp 15.000', 'Makanan & Olahan', '80 Bungkus', 'Olahan pisang pilihan lokal Sukaresik dengan bumbu meresap berstandar P-IRT.', 'https://images.unsplash.com/photo-1528751014936-863e6e7a319c?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Keripik%20Pisang" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 6 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="makanan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="Kopi Lokal Sukaresik" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-gold">Kopi Khas</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Makanan & Olahan</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 5.0 (78)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Kopi Robusta Sukaresik (200gr)</h6>
+              <p class="text-secondary small product-desc mb-3">Kopi bubuk asli aroma mantap dari kebun kopi lereng Desa Cipondok.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 40.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Kopi Robusta Sukaresik (200gr)', 'Rp 40.000', 'Makanan & Olahan', '40 Pack', 'Biji kopi pilihan roasted medium-dark khas pegunungan Tasikmalaya.', 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Kopi%20Robusta" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 7 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="kerajinan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1528458909336-e7a0adfac1d5?auto=format&fit=crop&w=500&q=80" alt="Kerajinan Bambu Tasik" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-red">Handmade</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Kerajinan</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 4.8 (42)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Set Anyaman Bambu Tradisional</h6>
+              <p class="text-secondary small product-desc mb-3">Wadah makanan dan tempat penyimpanan dari anyaman bambu etnik.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 65.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Set Anyaman Bambu Tradisional', 'Rp 65.000', 'Kerajinan', '15 Set', 'Produk buatan tangan pengrajin seni anyam Desa Cipondok. Awet dan ramah lingkungan.', 'https://images.unsplash.com/photo-1528458909336-e7a0adfac1d5?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Set%20Anyaman%20Bambu" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk 8 -->
+        <div class="col-sm-6 col-md-4 col-lg-3 product-card-col" data-category="makanan">
+          <div class="card-custom">
+            <div class="card-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=500&q=80" alt="Madu Murni Hutan Desa" loading="lazy" referrerPolicy="no-referrer" />
+              <span class="card-badge badge-gold">100% Murni</span>
+            </div>
+            <div class="card-body-custom">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small">Makanan & Olahan</span>
+                <div class="rating-stars"><i class="bi bi-star-fill"></i> 5.0 (98)</div>
+              </div>
+              <h6 class="fw-bold product-title mb-2">Madu Murni Hutan Cipondok (350ml)</h6>
+              <p class="text-secondary small product-desc mb-3">Madu hutan alami tanpa pemanis buatan untuk daya tahan tubuh.</p>
+              <div class="mt-auto">
+                <div class="product-price mb-3">Rp 95.000</div>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-danger btn-sm rounded-pill fw-bold" onclick="openProductModal('Madu Murni Hutan Cipondok (350ml)', 'Rp 95.000', 'Makanan & Olahan', '25 Botol', 'Dipanen langsung oleh pembudidaya lebah hutan Desa Cipondok. Dijamin kemurniannya.', 'https://images.unsplash.com/photo-1587049352847-4a222e784d38?auto=format&fit=crop&w=600&q=80')">
+                    <i class="bi bi-eye"></i> Lihat Detail
+                  </button>
+                  <a href="https://wa.me/6281234567890?text=Halo%20Koperasi%20Merah%20Putih%20Desa%20Cipondok,%20saya%20ingin%20membeli%20Madu%20Murni" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+                    <i class="bi bi-whatsapp"></i> Hubungi Penjual
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       8. ARTIKEL & BERITA KOPERASI
+       ========================================== -->
+  <section id="artikel" class="section-padding bg-body-tertiary border-top border-bottom">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-title-badge">Kabar & Edukasi</span>
+        <h2 class="section-main-title">Artikel & Berita Koperasi</h2>
+        <p class="section-description">
+          Informasi seputar kegiatan koperasi, edukasi keuangan syariah, dan kisah sukses UMKM Desa Cipondok.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Main Article List -->
+        <div class="col-lg-8">
+
+          <div class="row g-4" id="articles-container">
+            <!-- Artikel 1 -->
+            <div class="col-md-6 article-card-col" data-category="berita">
+              <div class="card-custom">
+                <div class="card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=600&q=80" alt="Panen Raya Padi Organik" loading="lazy" referrerPolicy="no-referrer" />
+                  <span class="card-badge badge-green">Berita Desa</span>
+                </div>
+                <div class="card-body-custom">
+                  <div class="text-muted small mb-2"><i class="bi bi-calendar3 me-1"></i> 18 Juli 2026 • Oleh Irfan Alna</div>
+                  <h5 class="fw-bold article-title mb-2">Panen Raya Padi Organik Desa Cipondok Capai Hasil Melimpah</h5>
+                  <p class="text-secondary small article-summary mb-3">Kelompok tani binaan Koperasi Desa Merah Putih sukses menggelar panen raya padi varietas pandanwangi organik dengan peningkatan tonase 20%...</p>
+                  <div class="mt-auto">
+                    <button class="btn btn-link text-danger p-0 fw-bold text-decoration-none" onclick="openArticleModal('Panen Raya Padi Organik Desa Cipondok Capai Hasil Melimpah', '18 Juli 2026', 'Irfan Alna', 'Berita Desa', '<p>Desa Cipondok kembali mencatatkan prestasi membanggakan di bidang pertanian. Melalui sinergi erat antara Koperasi Desa Merah Putih dan 12 Kelompok Tani lokal, kegiatan Panen Raya Padi Organik musim ini membuahkan hasil melebihi target.</p><p>Manajer Koperasi, Irfan Alna, menyampaikan bahwa keberhasilan ini tidak lepas dari pendampingan pola tanam ramah lingkungan serta ketersediaan pupuk organik yang disalurkan melalui unit usaha koperasi.</p><p>Hasil panen ini selanjutnya diserap langsung oleh unit pemasaran koperasi untuk dikemas dan didistribusikan ke jaringan minimarket modern dan konsumen luas.</p>', 'https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=800&q=80')">
+                      Baca Selengkapnya <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Artikel 2 -->
+            <div class="col-md-6 article-card-col" data-category="edukasi">
+              <div class="card-custom">
+                <div class="card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=600&q=80" alt="Pelatihan Digital UMKM" loading="lazy" referrerPolicy="no-referrer" />
+                  <span class="card-badge badge-red">Edukasi UMKM</span>
+                </div>
+                <div class="card-body-custom">
+                  <div class="text-muted small mb-2"><i class="bi bi-calendar3 me-1"></i> 10 Juli 2026 • Oleh Redaksi</div>
+                  <h5 class="fw-bold article-title mb-2">Strategi Koperasi Mendorong Digitalisasi Pemasaran UMKM</h5>
+                  <p class="text-secondary small article-summary mb-3">Koperasi menyelenggarakan workshop branding kemasan dan pembuatan toko online untuk puluhan pengrajin dan produsen makanan olahan...</p>
+                  <div class="mt-auto">
+                    <button class="btn btn-link text-danger p-0 fw-bold text-decoration-none" onclick="openArticleModal('Strategi Koperasi Mendorong Digitalisasi Pemasaran UMKM', '10 Juli 2026', 'Redaksi Koperasi', 'Edukasi UMKM', '<p>Di era ekonomi digital, Koperasi Desa Merah Putih berkomitmen agar para pelaku UMKM Desa Cipondok tidak tertinggal. Bertempat di balai desa, pelatihan sertifikasi halal dan branding kemasan resmi digelar.</p><p>Dalam sesi ini, para anggota diajarkan cara memanfaatkan katalog online microsite dan promosi WhatsApp Marketing untuk memperluas jangkauan pembeli hingga luar kota.</p>', 'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80')">
+                      Baca Selengkapnya <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Artikel 3 -->
+            <div class="col-md-6 article-card-col" data-category="keuangan">
+              <div class="card-custom">
+                <div class="card-img-wrapper">
+                  <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Simpan Pinjam Syariah" loading="lazy" referrerPolicy="no-referrer" />
+                  <span class="card-badge badge-blue">Simpan Pinjam</span>
+                </div>
+                <div class="card-body-custom">
+                  <div class="text-muted small mb-2"><i class="bi bi-calendar3 me-1"></i> 2 Juli 2026 • Oleh Deden Kurnia</div>
+                  <h5 class="fw-bold article-title mb-2">Manfaat Layanan Simpan Pinjam Syariah Bagi Anggota</h5>
+                  <p class="text-secondary small article-summary mb-3">Mengenal akad mudharabah dan murabahah yang diterapkan Koperasi Merah Putih untuk permodalan usaha tanpa jeratan bunga tinggi...</p>
+                  <div class="mt-auto">
+                    <button class="btn btn-link text-danger p-0 fw-bold text-decoration-none" onclick="openArticleModal('Manfaat Layanan Simpan Pinjam Syariah Bagi Anggota', '2 Juli 2026', 'Deden Kurnia', 'Simpan Pinjam', '<p>Unit usaha Simpan Pinjam Syariah Koperasi Desa Merah Putih hadir sebagai solusi keuangan adil dan menentramkan. Anggota dapat mengakses pembiayaan modal kerja dengan transparansi margin yang disepakati bersama.</p>', 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80')">
+                      Baca Selengkapnya <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Article Sidebar -->
+        <div class="col-lg-4">
+          <div class="card-custom p-4 mb-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-search me-2 text-danger"></i> Cari Artikel</h5>
+            <div class="input-group">
+              <input type="text" id="article-search" class="form-control" placeholder="Kata kunci..." />
+            </div>
+          </div>
+
+          <div class="card-custom p-4 mb-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-tags-fill me-2 text-danger"></i> Kategori Topik</h5>
+            <div class="list-group list-group-flush">
+              <a href="#" class="list-group-item list-group-item-action border-0 px-0 d-flex justify-content-between align-items-center article-cat-link" data-category="all">
+                <span><i class="bi bi-chevron-right me-1 text-danger"></i> Semua Kategori</span>
+                <span class="badge bg-secondary rounded-pill">3</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action border-0 px-0 d-flex justify-content-between align-items-center article-cat-link" data-category="berita">
+                <span><i class="bi bi-chevron-right me-1 text-danger"></i> Berita Desa</span>
+                <span class="badge bg-success rounded-pill">1</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action border-0 px-0 d-flex justify-content-between align-items-center article-cat-link" data-category="edukasi">
+                <span><i class="bi bi-chevron-right me-1 text-danger"></i> Edukasi UMKM</span>
+                <span class="badge bg-danger rounded-pill">1</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action border-0 px-0 d-flex justify-content-between align-items-center article-cat-link" data-category="keuangan">
+                <span><i class="bi bi-chevron-right me-1 text-danger"></i> Simpan Pinjam</span>
+                <span class="badge bg-primary rounded-pill">1</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-custom p-4">
+            <h5 class="fw-bold mb-3"><i class="bi bi-telephone-inbound-fill me-2 text-danger"></i> Layanan Informasi</h5>
+            <p class="text-secondary small">Punya pertanyaan seputar keanggotaan atau pendaftaran UMKM binaan?</p>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger w-100 rounded-pill fw-bold btn-sm">
+              <i class="bi bi-whatsapp me-1"></i> Tanya Sekretariat
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       9. PROMOSI & TESTIMONI
+       ========================================== -->
+  <section id="promosi" class="section-padding">
+    <div class="container">
+
+      <!-- Promo Banner -->
+      <div class="promo-banner mb-5">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mb-4 mb-lg-0">
+            <span class="badge bg-white text-danger font-weight-700 px-3 py-2 rounded-pill mb-3">PROGRAM KHUSUS ANGGOTA</span>
+            <h2 class="fw-bold text-white mb-2">Diskon 10% Paket Sembako Panen Raya!</h2>
+            <p class="text-white-50 mb-0">Khusus pemegang kartu keanggotaan Koperasi Desa Merah Putih Cipondok, nikmati potongan harga langsung untuk pembelian paket beras dan sembako murah.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="https://wa.me/6281234567890?text=Halo%20Koperasi,%20saya%20ingin%20klaim%20Promo%20Diskon%20Anggota" target="_blank" rel="noopener noreferrer" class="btn btn-light text-danger btn-lg rounded-pill fw-bold shadow">
+              <i class="bi bi-gift-fill me-1"></i> Klaim Diskon WA
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mb-5">
+        <span class="section-title-badge">Kisah Anggota</span>
+        <h2 class="section-main-title">Testimoni & Pengalaman</h2>
+        <p class="section-description">
+          Dengarkan langsung dari petani, pemilik UMKM, dan warga yang telah merasakan manfaat nyata Koperasi Merah Putih.
+        </p>
+      </div>
+
+      <!-- Testimoni Grid -->
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="rating-stars mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="testimonial-quote">
+              "Sejak bergabung menjadi anggota koperasi, pasokan bibit dan pupuk padi beras organik saya makin lancar. Panen langsung diserap dengan harga adil."
+            </p>
+            <div class="testimonial-user">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Pak Tatang" class="testimonial-avatar" loading="lazy" referrerPolicy="no-referrer" />
+              <div>
+                <h6 class="fw-bold mb-0">Pak Tatang</h6>
+                <small class="text-muted">Ketua Kelompok Tani Mekar</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="rating-stars mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="testimonial-quote">
+              "Bantuan modal simpan pinjam syariah dan pelatihan kemasan dari koperasi membuat produk keripik pisang saya tembus ke toko oleh-oleh Tasikmalaya."
+            </p>
+            <div class="testimonial-user">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Ibu Nining" class="testimonial-avatar" loading="lazy" referrerPolicy="no-referrer" />
+              <div>
+                <h6 class="fw-bold mb-0">Ibu Nining</h6>
+                <small class="text-muted">Pelaku UMKM Keripik</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="testimonial-card h-100">
+            <div class="rating-stars mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+            <p class="testimonial-quote">
+              "Pelayanan pengurus yang ramah dan transparan. Pengelolaan koperasi di bawah Mas Irfan Alna dan pengurus sangat profesional dan modern."
+            </p>
+            <div class="testimonial-user">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Kang Ujang" class="testimonial-avatar" loading="lazy" referrerPolicy="no-referrer" />
+              <div>
+                <h6 class="fw-bold mb-0">Kang Ujang</h6>
+                <small class="text-muted">Pembudidaya Ikan Gurame</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       10. KONTAK & PETA LOKASI
+       ========================================== -->
+  <section id="kontak" class="section-padding bg-body-tertiary border-top">
+    <div class="container">
+      <div class="row gy-5">
+
+        <!-- Contact Info & Map -->
+        <div class="col-lg-5">
+          <span class="section-title-badge">Hubungi Kami</span>
+          <h2 class="fw-bold mb-4">Sekretariat Koperasi Desa Merah Putih</h2>
+          <p class="text-secondary mb-4">
+            Kami siap melayani kebutuhan informasi keanggotaan, pemesanan produk grosir, maupun kemitraan usaha.
+          </p>
+
+          <div class="contact-info-item">
+            <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Alamat Kantor:</h6>
+              <p class="text-secondary small mb-0">
+                Kantor Kepala Desa Cipondok, Jl. Cipandang No. 2, Desa Cipondok, Kecamatan Sukaresik, Kabupaten Tasikmalaya, Jawa Barat (Kode Pos 46159)
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon" style="background-color: var(--primary-green-light); color: var(--primary-green);"><i class="bi bi-whatsapp"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">WhatsApp & Telepon:</h6>
+              <p class="text-secondary small mb-0">+62 812-3456-7890 (Layanan Pelanggan & WA)</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon" style="background-color: rgba(21, 101, 192, 0.15); color: var(--accent-blue);"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Email Resmi:</h6>
+              <p class="text-secondary small mb-0">koperasi.merahputih.cipondok@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon" style="background-color: rgba(245, 127, 23, 0.15); color: var(--accent-gold);"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <h6 class="fw-bold mb-1">Jam Operasional:</h6>
+              <p class="text-secondary small mb-0">Senin - Sabtu: 08.00 - 16.00 WIB (Minggu Libur)</p>
+            </div>
+          </div>
+
+          <!-- Embedded Map -->
+          <div class="mt-4">
+            <iframe class="map-placeholder" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31668.225721617515!2d108.1729!3d-7.1895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f4f2c00000001%3A0x1000000000000000!2sSukaresik%2C%20Tasikmalaya%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1680000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+          <div class="card-custom p-4 p-md-5">
+            <h4 class="fw-bold mb-2"><i class="bi bi-envelope-paper-fill text-danger me-2"></i> Kirim Pesan</h4>
+            <p class="text-muted small mb-4">Silakan isi formulir berikut untuk pertanyaan, kritik, atau saran.</p>
+
+            <form id="contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contact-name" class="form-label small fw-semibold">Nama Lengkap *</label>
+                  <input type="text" id="contact-name" class="form-control" placeholder="Contoh: Budi Santoso" required />
+                </div>
+                <div class="col-md-6">
+                  <label for="contact-email" class="form-label small fw-semibold">Email / No. WhatsApp *</label>
+                  <input type="text" id="contact-email" class="form-control" placeholder="Contoh: 08123456789" required />
+                </div>
+                <div class="col-12">
+                  <label for="contact-subject" class="form-label small fw-semibold">Subjek Pesan</label>
+                  <input type="text" id="contact-subject" class="form-control" placeholder="Pendaftaran Anggota / Pemesanan Produk / Kemitraan" />
+                </div>
+                <div class="col-12">
+                  <label for="contact-message" class="form-label small fw-semibold">Pesan Anda *</label>
+                  <textarea id="contact-message" class="form-control" rows="5" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-danger btn-lg rounded-pill fw-bold w-100 shadow">
+                    <i class="bi bi-send-fill me-2"></i> Kirim Pesan
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       11. FOOTER
+       ========================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4 col-md-6">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon" style="width: 38px; height: 38px; font-size: 1.1rem;">
+              <i class="bi bi-bank2"></i>
+            </div>
+            <span class="fw-bold text-white fs-5">Koperasi Merah Putih</span>
+          </div>
+          <p class="small text-secondary mb-3">
+            Microsite Resmi Koperasi Desa Merah Putih Desa Cipondok, Kecamatan Sukaresik, Kabupaten Tasikmalaya, Jawa Barat. Membangun ekonomi pedesaan berbasis gotong royong.
+          </p>
+          <div>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5>Menu Cepat</h5>
+          <ul class="footer-links small">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil Koperasi</a></li>
+            <li><a href="#potensi">Potensi Desa</a></li>
+            <li><a href="#produk">Katalog Produk</a></li>
+            <li><a href="#artikel">Artikel & Berita</a></li>
+            <li><a href="#promosi">Promosi</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Unit Usaha</h5>
+          <ul class="footer-links small">
+            <li><a href="#produk">Pemasaran Hasil Tani</a></li>
+            <li><a href="#produk">Pembinaan UMKM Desa</a></li>
+            <li><a href="#profil">Simpan Pinjam Syariah</a></li>
+            <li><a href="#produk">Toko Sembako Murah</a></li>
+            <li><a href="#potensi">Edu-Wisata Pertanian</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5>Lokasi Kantor</h5>
+          <p class="small text-secondary mb-2">
+            <i class="bi bi-geo-alt-fill text-danger me-1"></i> Kantor Kepala Desa Cipondok<br />
+            Jl. Cipandang No. 2, Desa Cipondok, Kec. Sukaresik, Kab. Tasikmalaya, Jawa Barat 46159
+          </p>
+          <p class="small text-secondary mb-0">
+            <i class="bi bi-telephone-fill text-success me-1"></i> +62 812-3456-7890
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-4 border-top border-secondary text-center small text-secondary">
+        <p class="mb-0">© 2026 Koperasi Desa Merah Putih Desa Cipondok. Seluruh Hak Cipta Dilindungi Undang-Undang.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       12. MODALS & OVERLAYS
+       ========================================== -->
+
+  <!-- Product Detail Modal -->
+  <div class="modal fade" id="productDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 shadow-lg">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title fw-bold" id="modalProductTitle">Detail Produk</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalProductImg" src="" alt="Detail Produk" class="w-100 rounded-3 mb-3" style="max-height: 250px; object-fit: cover;" />
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-danger" id="modalProductCategory">Kategori</span>
+            <span class="text-success fw-bold fs-4" id="modalProductPrice">Rp 0</span>
+          </div>
+          <p class="small text-muted mb-2">Stok: <strong id="modalProductStock">Ready</strong></p>
+          <hr />
+          <h6>Deskripsi Produk:</h6>
+          <p class="text-secondary small" id="modalProductDesc"></p>
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn btn-secondary btn-sm rounded-pill" data-bs-dismiss="modal">Tutup</button>
+          <a id="modalProductWaBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-success btn-sm rounded-pill fw-bold">
+            <i class="bi bi-whatsapp me-1"></i> Beli via WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Article Detail Modal -->
+  <div class="modal fade" id="articleDetailModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 shadow-lg">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title fw-bold" id="modalArticleTitle">Detail Artikel</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <img id="modalArticleImg" src="" alt="Artikel" class="w-100 rounded-3 mb-3" style="max-height: 320px; object-fit: cover;" />
+          <div class="text-muted small mb-3" id="modalArticleMeta"></div>
+          <div id="modalArticleContent" class="text-secondary"></div>
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn btn-secondary btn-sm rounded-pill" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Gallery Modal -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-transparent border-0">
+        <div class="modal-body text-center p-0">
+          <img id="lightboxImage" src="" alt="Gallery Lightbox" class="img-fluid rounded-3 shadow-lg" />
+          <p id="lightboxCaption" class="text-white mt-2 font-weight-500"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back To Top Button -->
+  <button id="back-to-top" type="button" aria-label="Kembali ke atas">
+    <i class="bi bi-arrow-up-short fs-2"></i>
+  </button>
+
+
+  <!-- Bootstrap 5 JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript File -->
+  <script src="/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,792 @@
+/* ==========================================================================
+   KOPERASI DESA MERAH PUTIH DESA CIPONDOK - OFFICIAL MICROSITE STYLESHEET
+   Desa Cipondok, Kecamatan Sukaresik, Kabupaten Tasikmalaya, Jawa Barat
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES & THEMING
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --primary-red: #C62828;
+  --primary-red-hover: #B71C1C;
+  --primary-red-light: #FFEBEE;
+  --primary-green: #2E7D32;
+  --primary-green-hover: #1B5E20;
+  --primary-green-light: #E8F5E9;
+  
+  /* Neutral Colors (Light Theme) */
+  --bg-main: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --bg-surface: #F5F5F5;
+  --text-primary: #212529;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+  --border-color: #E0E0E0;
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+  --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  /* Functional Colors */
+  --accent-gold: #F57F17;
+  --accent-blue: #1565C0;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --transition-speed: 0.3s ease;
+}
+
+/* Dark Mode Overrides */
+[data-bs-theme="dark"] {
+  --bg-main: #121212;
+  --bg-card: #1E1E1E;
+  --bg-surface: #262626;
+  --text-primary: #F1F1F1;
+  --text-secondary: #CCCCCC;
+  --text-muted: #999999;
+  --border-color: #333333;
+  --navbar-bg: rgba(18, 18, 18, 0.9);
+  --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --primary-red-light: rgba(198, 40, 40, 0.15);
+  --primary-green-light: rgba(46, 125, 50, 0.15);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   2. GENERAL RESETS & TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-red);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-red-hover);
+}
+
+/* --------------------------------------------------------------------------
+   3. LOADING SCREEN
+   -------------------------------------------------------------------------- */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-card);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.spinner-logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  animation: pulse-grow 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-grow {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   4. STICKY NAVBAR WITH BACKDROP BLUR
+   -------------------------------------------------------------------------- */
+.navbar-custom {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background-color: var(--navbar-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--navbar-shadow);
+  transition: all var(--transition-speed);
+  padding: 12px 0;
+}
+
+.navbar-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary-red), #9A0007);
+  color: #FFF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.3);
+}
+
+.brand-text-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--primary-red);
+  letter-spacing: -0.2px;
+}
+
+.brand-text-sub {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.nav-link-custom {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-primary) !important;
+  padding: 8px 16px !important;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.nav-link-custom:hover,
+.nav-link-custom.active {
+  color: var(--primary-red) !important;
+  background-color: var(--primary-red-light);
+}
+
+.btn-theme-toggle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-theme-toggle:hover {
+  background: var(--primary-red-light);
+  color: var(--primary-red);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO SECTION
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at top right, rgba(198, 40, 40, 0.05), transparent 50%);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 30px;
+  background-color: var(--primary-red-light);
+  color: var(--primary-red);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.hero-title span {
+  color: var(--primary-red);
+}
+
+.hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+.hero-img-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+}
+
+.hero-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-img-container:hover .hero-img {
+  transform: scale(1.03);
+}
+
+/* Floating Badges over Hero Image */
+.floating-chip {
+  position: absolute;
+  background: var(--bg-card);
+  padding: 10px 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  z-index: 2;
+  border: 1px solid var(--border-color);
+  animation: float-anim 4s infinite ease-in-out;
+}
+
+.floating-chip-1 {
+  top: 20px;
+  left: 20px;
+}
+
+.floating-chip-2 {
+  bottom: 20px;
+  right: 20px;
+  animation-delay: 2s;
+}
+
+@keyframes float-anim {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* --------------------------------------------------------------------------
+   6. STATISTIK COUNTER SECTION
+   -------------------------------------------------------------------------- */
+.stats-section {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 40px 0;
+  box-shadow: var(--shadow-soft);
+}
+
+.stat-item {
+  text-align: center;
+  padding: 15px;
+}
+
+.stat-icon {
+  font-size: 2.2rem;
+  color: var(--primary-red);
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. COMMON SECTION STYLES & CARDS
+   -------------------------------------------------------------------------- */
+.section-padding {
+  padding: 80px 0;
+}
+
+.section-title-badge {
+  color: var(--primary-red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-main-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.section-description {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+}
+
+/* Custom Card Styling */
+.card-custom {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-speed);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-custom:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(198, 40, 40, 0.3);
+}
+
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-custom:hover .card-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.card-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #FFF;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.badge-red { background-color: var(--primary-red); }
+.badge-green { background-color: var(--primary-green); }
+.badge-gold { background-color: var(--accent-gold); }
+.badge-blue { background-color: var(--accent-blue); }
+
+.card-body-custom {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   8. PROFIL & STRUKTUR ORGANISASI
+   -------------------------------------------------------------------------- */
+.profile-card-item {
+  padding: 24px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background-color: var(--primary-red-light);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+/* Manager & Org Card */
+.org-card {
+  text-align: center;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-speed);
+}
+
+.org-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-red);
+}
+
+.org-img {
+  width: 130px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border: 3px solid var(--primary-red-light);
+}
+
+.org-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.org-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-red);
+  background: var(--primary-red-light);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* --------------------------------------------------------------------------
+   9. POTENSI & PRODUK FILTERS
+   -------------------------------------------------------------------------- */
+.filter-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.btn-filter {
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover,
+.btn-filter.active {
+  background-color: var(--primary-red);
+  color: #FFFFFF;
+  border-color: var(--primary-red);
+  box-shadow: 0 4px 12px rgba(198, 40, 40, 0.3);
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--primary-green);
+}
+
+.rating-stars {
+  color: #FFC107;
+  font-size: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. LIGHTBOX & MODALS
+   -------------------------------------------------------------------------- */
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  height: 220px;
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   11. PROMOSI & TESTIMONI
+   -------------------------------------------------------------------------- */
+.promo-banner {
+  background: linear-gradient(135deg, var(--primary-red), #8E0000);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: 0 15px 35px rgba(198, 40, 40, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-banner::after {
+  content: '';
+  position: absolute;
+  right: -50px;
+  bottom: -50px;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.testimonial-card {
+  padding: 30px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.testimonial-quote {
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.testimonial-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-red);
+}
+
+/* --------------------------------------------------------------------------
+   12. KONTAK & MAPS
+   -------------------------------------------------------------------------- */
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--primary-red-light);
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-md);
+  border: 0;
+  box-shadow: var(--shadow-soft);
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER
+   -------------------------------------------------------------------------- */
+.footer-custom {
+  background-color: #111827;
+  color: #9CA3AF;
+  padding: 70px 0 30px;
+  border-top: 4px solid var(--primary-red);
+}
+
+.footer-custom h5 {
+  color: #FFFFFF;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #9CA3AF;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+  padding-left: 4px;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+}
+
+.social-icon-btn:hover {
+  background: var(--primary-red);
+  color: #FFF;
+  transform: translateY(-3px);
+}
+
+/* --------------------------------------------------------------------------
+   14. BACK TO TOP BUTTON & TOASTS
+   -------------------------------------------------------------------------- */
+#back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--primary-red);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(198, 40, 40, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background-color: var(--primary-red-hover);
+  transform: translateY(-3px);
+}
+
+/* Toast Notification Floating Container */
+.toast-container-custom {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1090;
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .hero-img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  .section-main-title {
+    font-size: 1.75rem;
+  }
+  .promo-banner {
+    padding: 28px 20px;
+  }
+}
