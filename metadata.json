@@ -1,0 +1,6 @@
+{
+  "name": "Microsite Koperasi Desa Merah Putih Sukaresik",
+  "description": "Microsite resmi Koperasi Desa Merah Putih Kec. Sukaresik, Kab. Tasikmalaya - Profil, Potensi Desa, Produk UMKM, Artikel & Promosi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
